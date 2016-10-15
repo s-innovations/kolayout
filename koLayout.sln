@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B75E0556-4B65-43F8-B2F7-1B57D29573E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9EE0367-AE76-4CD3-9728-9AEC9E13D684}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "koLayout", "src\koLayout\koLayout.xproj", "{868A1174-A2C0-4E51-B07E-3856E3CE6BC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{868A1174-A2C0-4E51-B07E-3856E3CE6BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868A1174-A2C0-4E51-B07E-3856E3CE6BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868A1174-A2C0-4E51-B07E-3856E3CE6BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{868A1174-A2C0-4E51-B07E-3856E3CE6BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{868A1174-A2C0-4E51-B07E-3856E3CE6BC4} = {B75E0556-4B65-43F8-B2F7-1B57D29573E5}
+	EndGlobalSection
+EndGlobal
