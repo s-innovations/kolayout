@@ -1,7 +1,6 @@
 {
   "version": "0.9.0-pre",
   "name": "kolayout",
-  "private": true,
   "author": "Poul K. Sørensen <poul@earthml.com> (https://twitter.com/pksorensen",
   "keywords": [ "earthml", "knockout", "knockoutjs", "kolayout" ],
   "homepage": "http://www.earthml.com",
