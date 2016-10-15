@@ -41,9 +41,21 @@ export interface KnockoutTemplateBindingHandlerOptions {
 }
 
 
-export interface koLayout {
+export interface IKoLayout {
     templateOptions(element?: HTMLElement): KnockoutTemplateBindingHandlerOptions;
 }
+
+export class KoLayout implements IKoLayout {
+    constructor(protected options: KnockoutTemplateBindingHandlerOptions) {
+
+    }
+
+    templateOptions(element?: HTMLElement) {
+        return this.options;
+    }
+}
+
+
 
 
 ko.virtualElements.allowedBindings["koLayout"] = true;
@@ -76,7 +88,7 @@ ko.bindingHandlers.koLayout = {
     init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
 
         var vm = valueAccessor();
-        var layout = ko.utils.unwrapObservable<koLayout>(vm);
+        var layout = ko.utils.unwrapObservable<IKoLayout>(vm);
 
         if (isDefined(layout)) {
 
@@ -91,7 +103,7 @@ ko.bindingHandlers.koLayout = {
     update: function (element: any, valueAccessor: () => any, allBindingsAccessor?: KnockoutAllBindingsAccessor, viewModel?: any, bindingContext?: KnockoutBindingContext) {
 
 
-        var layout = ko.utils.unwrapObservable<koLayout>(valueAccessor());
+        var layout = ko.utils.unwrapObservable<IKoLayout>(valueAccessor());
 
         if (isDefined(layout)) {
             let init = !isDefined(ko.utils.domData.get(element, "kolayout_init"));
