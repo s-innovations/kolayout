@@ -1,0 +1,16 @@
+﻿{
+  "frameworks": {
+    "net452": {       
+    }
+  },
+  
+  "publishOptions": {
+    "include": [
+      "dist"
+    ]
+  },
+
+  "scripts": {
+  
+  }
+}

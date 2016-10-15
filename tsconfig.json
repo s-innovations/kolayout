@@ -1,0 +1,17 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "ES5",
+    "module": "amd",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist/typings",
+    "outDir": "dist/src",
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}
