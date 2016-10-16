@@ -47,7 +47,7 @@ export interface IKoLayout {
 
 export class KoLayout implements IKoLayout {
     constructor(protected options: KnockoutTemplateBindingHandlerOptions) {
-
+        options.data = options.data || this;
     }
 
     templateOptions(element?: HTMLElement) {
@@ -62,6 +62,7 @@ ko.virtualElements.allowedBindings["koLayout"] = true;
 
 var old = ko.bindingProvider.instance.preprocessNode;
 ko.bindingProvider.instance.preprocessNode = function (node: HTMLElement) {
+
     if (node.nodeType == 8) {    /* Comments looking for <!-- koLayout : propertyname --> */
         var match = node.nodeValue.match(/^\s*koLayout\s*:([\s\S]+)/);
 
@@ -91,7 +92,7 @@ ko.bindingHandlers.koLayout = {
         var layout = ko.utils.unwrapObservable<IKoLayout>(vm);
 
         if (isDefined(layout)) {
-
+            ko.utils.domData.set(element, "kolayout_init", true);
             return ko.bindingHandlers.template.init.apply(this, [
                 element, layout.templateOptions.bind(layout, element, true), allBindingsAccessor, viewModel, bindingContext
             ]);
@@ -106,16 +107,25 @@ ko.bindingHandlers.koLayout = {
         var layout = ko.utils.unwrapObservable<IKoLayout>(valueAccessor());
 
         if (isDefined(layout)) {
+            
             let init = !isDefined(ko.utils.domData.get(element, "kolayout_init"));
+
+            let options = layout.templateOptions.call(layout, element, init);
+
             if (init) {
-                ko.utils.domData.set(element, "kolayout_init", true)
+                ko.utils.domData.set(element, "kolayout_init", true);
+                ko.bindingHandlers.template.init.apply(this, [
+                    element, () => options, allBindingsAccessor, viewModel, bindingContext
+                ]);
             }
 
             return ko.bindingHandlers.template.update.apply(this, [
-                element, layout.templateOptions.bind(layout, element, init), allBindingsAccessor, viewModel, bindingContext
+                element, () => options, allBindingsAccessor, viewModel, bindingContext
             ]);
+
         } else {
             //Clean out template
+      
             return ko.bindingHandlers.template.update.apply(this, [
                 element, function () { return { if: false } }, allBindingsAccessor, viewModel, bindingContext
             ]);
