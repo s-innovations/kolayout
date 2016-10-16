@@ -1,5 +1,6 @@
 ﻿
-import {isDefined } from "kolayout/utils/isDefined";
+import { isDefined } from "kolayout/utils/isDefined";
+import { KoLayout } from "kolayout";
 
 describe("koLayoutSuite", function () {
     it("isDefined spec", function () {
@@ -10,6 +11,15 @@ describe("koLayoutSuite", function () {
         expect(isDefined(false)).toBe(true);
         expect(isDefined(0)).toBe(true);
 
+    });
+
+
+    it("KoLayout Constructor spec", () => {
+        let options = {};
+        let layout = new KoLayout(options);
+        expect(layout).toBeDefined();
+        expect(options).toEqual(layout.templateOptions());
+        
     });
 });
 

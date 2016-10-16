@@ -8,8 +8,12 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
+      "kolayout": [ "../dist/typings" ],
       "kolayout/*": [ "../dist/typings/*" ]
-    }
+    },
+    
+   "traceResolution": true
+   
   },
   "exclude": [
     "dist",
