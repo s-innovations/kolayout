@@ -1,14 +1,15 @@
-{
+﻿{
   "compileOnSave": true,
   "compilerOptions": {
     "noImplicitAny": true,
     "target": "ES5",
     "module": "amd",
-    "rootDir": "src",
-    "declaration": true,
-    "declarationDir": "dist/typings",
-    "outDir": "dist/src",
-    "moduleResolution": "node"
+    "rootDir": ".",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "kolayout/*": [ "../dist/typings/*" ]
+    }
   },
   "exclude": [
     "dist",

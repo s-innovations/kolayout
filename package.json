@@ -24,5 +24,14 @@
     "knockout": "3.4.0",
     "@types/knockout": "^3.4.0"
   },
+  "devDependencies": {
+    "@types/jasmine": "^2.5.35",
+    "grunt-npmcopy": "0.1.0",
+    "grunt": "1.0.1",
+    "typescript": "2.0.3",
+    "requirejs": "2.3.2",
+    "grunt-contrib-jasmine": "1.0.3",
+    "grunt-template-jasmine-requirejs": "mikeapr4/grunt-template-jasmine-requirejs#311e8ddfa89566a03444964e013c6825c0263795"
+  },
   "types": "dist/typings/index.d.ts"
 }
