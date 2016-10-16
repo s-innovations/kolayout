@@ -1,17 +1,20 @@
 ﻿{
+  
   "frameworks": {
-    "net452": {       
+    "net452": {
     }
   },
-  
+
   "publishOptions": {
     "include": [
-      "dist"
+      "dist",
+      "package.json",
+      "README.md"
     ]
   },
 
   "scripts": {
-    "postcompile": ["tsc","grunt tests"],
+    "postcompile": [ "tsc", "grunt tests" ],
     "prepublish": [ "npm install", "tsc", "grunt tests" ]
   }
 }
