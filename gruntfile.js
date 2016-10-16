@@ -10,6 +10,9 @@
                 },
                 options: {
                     specs: ['tests/*.js'],
+                    junit: {
+                        path: 'build/junit'
+                    },
                     //     vendor: "node_modules/**/*.js",
                     template: require('grunt-template-jasmine-requirejs'),
                     templateOptions: {
