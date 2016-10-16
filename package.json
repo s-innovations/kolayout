@@ -1,5 +1,5 @@
 {
-  "version": "0.9.2-pre.5",
+  "version": "0.9.2-pre.6",
   "name": "kolayout",
   "author": "Poul K. Sorensen <poul@earthml.com> (https://twitter.com/pksorensen",
   "description": "koLayout provides an easier way to compose reusable uielements when working with knockout, defining preprocessor and binding handlers for koLayout data-bindings.",
