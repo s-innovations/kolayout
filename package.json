@@ -19,6 +19,9 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "tests": "tsc & tsc --project tests & grunt tests"
+  },
   "main": "dist/src/index.js",
   "dependencies": {
     "knockout": "3.4.0",
