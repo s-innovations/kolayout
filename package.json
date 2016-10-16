@@ -16,12 +16,16 @@
   "license": "MIT",
   "maintainers": [],
   "files": [
-    "dist"
+    "dist",
+    "scripts"
   ],
+  "scripts": {
+    "postinstall": "scripts/postinstall.js"
+  },
   "main": "dist/src/index.js",
   "dependencies": {
     "knockout": "3.4.0",
     "@types/knockout": "^3.4.0"
   },
-  "types": "dist/typings/index.d.ts"
+  "typings": "dist/typings/index.d.ts"
 }
