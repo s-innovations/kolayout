@@ -58,7 +58,7 @@
                                          name: "kolayout",
                                          main: "index",
                                          location: "."
-                                     },
+                                     }
                                 ]
                             }
                         }

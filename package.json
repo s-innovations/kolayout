@@ -1,18 +1,18 @@
 {
   "version": "0.9.2-pre.8",
   "name": "kolayout",
-  "author": "Poul K. Sorensen <poul@earthml.com> (https://twitter.com/pksorensen",
+  "author": "Poul K. Sorensen <pks@s-innovations.net> (https://twitter.com/pksorensen",
   "description": "koLayout provides an easier way to compose reusable uielements when working with knockout, defining preprocessor and binding handlers for koLayout data-bindings.",
   "keywords": [
-    "earthml",
+    "s-innovations",
     "knockout",
     "knockoutjs",
     "kolayout"
   ],
-  "homepage": "http://www.earthml.com",
+  "homepage": "http://www.s-innovations.net",
   "bugs": {
-    "url": "https://github.com/earthml/kolayout/issues",
-    "email": "bugs@earthml.com"
+    "url": "https://github.com/s-innovations/kolayout/issues",
+    "email": "bugs@s-innovations.com"
   },
   "repository": "https://github.com/s-innovations/kolayout",
   "license": "MIT",
