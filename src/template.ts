@@ -24,6 +24,7 @@ var loader = {
         write.asModule(pluginName + "!" + moduleName,
             "define(['text!" + moduleName + "', 'knockout', 'stringTemplateEngine'], function (content, ko) {" +
             "ko.templates['" + safeName + "'] = content;" +
+            "return '"+safeName+"';" +
             "});\n"
         );
     }

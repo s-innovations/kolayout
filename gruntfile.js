@@ -51,7 +51,8 @@
                                 },
                                 baseUrl: '.grunt/grunt-contrib-jasmine/dist/src/',
                                 paths: {                                   
-                                    "knockout": "../../../../node_modules/knockout/build/output/knockout-latest"
+                                    "knockout": "../../../../node_modules/knockout/build/output/knockout-latest",
+                                    "text": "../../../../node_modules/requirejs-text/text"
                                 },
                                 packages: [                                   
                                      {
