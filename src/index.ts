@@ -45,6 +45,10 @@ export interface IKoLayout {
     templateOptions(element?: HTMLElement): KnockoutTemplateBindingHandlerOptions;
 }
 
+interface IReactLayout {
+    __reactModule?: any;
+}
+
 export class KoLayout implements IKoLayout {
     constructor(protected options: KnockoutTemplateBindingHandlerOptions) {
         options.data = options.data || this;
@@ -87,15 +91,24 @@ ko.bindingProvider.instance.preprocessNode = function (node: HTMLElement) {
 
 ko.bindingHandlers.koLayout = {
     init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-
+       
         var vm = valueAccessor();
         var layout = ko.utils.unwrapObservable<IKoLayout>(vm);
 
-        if (isDefined(layout)) {
+        
+
+        if (isDefined(layout)) {        
             ko.utils.domData.set(element, "kolayout_init", true);
-            return ko.bindingHandlers.template.init.apply(this, [
-                element, layout.templateOptions.bind(layout, element, true), allBindingsAccessor, viewModel, bindingContext
-            ]);
+
+            if ("__reactModule" in layout) {
+                let reactModule = layout as IReactLayout;
+                return ko.bindingHandlers.react.init.apply(this, [element, () => reactModule.__reactModule, allBindingsAccessor, viewModel, bindingContext]);
+            } else {
+
+                return ko.bindingHandlers.template.init.apply(this, [
+                    element, layout.templateOptions.bind(layout, element, true), allBindingsAccessor, viewModel, bindingContext
+                ]);
+            }
         } else {
 
             //Do nothing, update will handle if it was observable.
@@ -113,15 +126,28 @@ ko.bindingHandlers.koLayout = {
             let options = layout.templateOptions.call(layout, element, init);
 
             if (init) {
+
                 ko.utils.domData.set(element, "kolayout_init", true);
-                ko.bindingHandlers.template.init.apply(this, [
+
+                if ("__reactModule" in layout) {
+                    let reactModule = layout as IReactLayout;
+                    ko.bindingHandlers.react.init.apply(this, [element, () => reactModule.__reactModule, allBindingsAccessor, viewModel, bindingContext]);
+                } else {
+                   
+                    ko.bindingHandlers.template.init.apply(this, [
+                        element, () => options, allBindingsAccessor, viewModel, bindingContext
+                    ]);
+                }
+            }
+            if ("__reactModule" in layout) {
+                let reactModule = layout as IReactLayout;
+                ko.bindingHandlers.react.update.apply(this, [element, () => reactModule.__reactModule, allBindingsAccessor, viewModel, bindingContext]);
+
+            } else {
+                return ko.bindingHandlers.template.update.apply(this, [
                     element, () => options, allBindingsAccessor, viewModel, bindingContext
                 ]);
             }
-
-            return ko.bindingHandlers.template.update.apply(this, [
-                element, () => options, allBindingsAccessor, viewModel, bindingContext
-            ]);
 
         } else {
             //Clean out template

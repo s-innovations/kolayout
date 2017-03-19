@@ -3,7 +3,7 @@
 }
 interface KnockoutBindingHandlers {
     koLayout: KnockoutBindingHandler;
-
+    react: KnockoutBindingHandler;
 }
 
 interface KnockoutTemplateSources {

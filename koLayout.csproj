@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyName>koLayout</AssemblyName>
+    <PackageId>koLayout</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="dist\**\*;package.json;README.md">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostcompileScript" AfterTargets="Build">
+    <!--<Exec Command="tsc" />
+    <Exec Command="grunt tests" />-->
+  </Target>
+
+  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <Exec Command="npm install" />
+    <Exec Command="tsc" />
+    <Exec Command="grunt tests" />
+  </Target>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
